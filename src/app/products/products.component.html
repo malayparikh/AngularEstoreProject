@@ -1,0 +1,34 @@
+<form [formGroup]="productForm" (ngSubmit)="addProductToDB">
+  <p>Product ID:</p>
+  <input type="text" id="productID" placeholder="eg: 101" formControlName="pid">
+  <br>
+
+  <p>Product Name:</p>
+  <input type="text" id="productName" placeholder="eg: Sports shoe" formControlName="name">
+  <br>
+
+  <p>Product Price:</p>
+  <input type="text" id="productPrice" placeholder="eg: 2000" formControlName="price">
+  <br>
+
+  <p>Product Ratings:</p>
+  <input type="text" id="productID" placeholder="eg: 4.5" formControlName="ratings">
+  <br>
+
+  <select formControlName="category">
+    <option *ngFor="let category of categories">
+        {{category.title}}
+    </option>
+  </select>
+
+  <br>
+  <button type="submit">ADD PRODUCT</button>
+</form>
+
+<p>products works!</p>
+<h2>List of Products</h2>
+<div *ngIf="showProducts">
+  <p *ngFor="let product of products">
+    {{product.pid}} | {{product.name}} | {{product.price}} | {{product.ratings}}
+  </p>
+</div>
